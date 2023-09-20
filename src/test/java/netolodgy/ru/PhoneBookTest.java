@@ -34,6 +34,6 @@ class PhoneBookTest {
     @Test
     void validatePhoneBookFindByName () {
         Integer result = phoneBook.findByName("Pit");
-        Assertions.assertEquals("1111", result);
+        Assertions.assertEquals(1111, result);
     }
 }

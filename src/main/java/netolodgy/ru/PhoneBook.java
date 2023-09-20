@@ -2,7 +2,6 @@ package netolodgy.ru;
 
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class PhoneBook {
     protected TreeMap<String, Integer> phoneBookList = new TreeMap<>();
@@ -23,7 +22,10 @@ public class PhoneBook {
     }
 
     public Integer findByName (String text) {
-            return null;
+        if (phoneBookList.containsKey(text)) {
+            return  phoneBookList.get(text);
+        }
+        return null;
     }
 
     @Override
