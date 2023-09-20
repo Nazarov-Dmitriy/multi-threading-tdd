@@ -21,11 +21,14 @@ public class PhoneBook {
         return null;
     }
 
-    public Integer findByName (String text) {
+    public Integer findByName(String text) {
         if (phoneBookList.containsKey(text)) {
-            return  phoneBookList.get(text);
+            return phoneBookList.get(text);
         }
         return null;
+    }
+
+    public void printAllNames() {
     }
 
     @Override
