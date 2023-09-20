@@ -29,6 +29,9 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
+        for (Map.Entry<String, Integer> entry : phoneBookList.entrySet()) {
+            System.out.println(entry.getKey().trim());
+        }
     }
 
     @Override

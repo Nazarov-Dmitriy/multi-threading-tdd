@@ -1,8 +1,4 @@
 package netolodgy.ru;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,19 +6,15 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 
 
 class PhoneBookTest {
     static PhoneBook phoneBook = new PhoneBook();
+    private static ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-    private ByteArrayOutputStream output = new ByteArrayOutputStream();
     @BeforeAll
     static void setup() {
         phoneBook.add("Pit", 1111);
-    }
-    @Before
-    public void setUpStreams() {
         System.setOut(new PrintStream(output));
     }
 
@@ -53,17 +45,17 @@ class PhoneBookTest {
     @Test
     void validatePhoneBookPrintAllNames() throws Exception {
         phoneBook.add("Anna", 2222);
-        phoneBook.add("Mark", 2222);
-        phoneBook.add("Bill", 2222);
-        phoneBook.add("Li", 2222);
+        phoneBook.add("Mark", 333);
+        phoneBook.add("Bill", 44);
+        phoneBook.add("Li", 3333);
 
         phoneBook.printAllNames();
 
-        Assert.assertEquals("Anna\n Bill\n Li\n".trim(), output.toString());
-    }
-
-    @After
-    public void cleanUpStreams() {
-        System.setOut(null);
+          Assertions.assertEquals("""
+                Anna\r
+                Bill\r
+                Li\r
+                Mark\r
+                Pit""", output.toString().trim());
     }
 }
