@@ -8,7 +8,18 @@ public class PhoneBook {
 
     public int add(String name, int number) {
         phoneBookList.put(name, number);
-        return phoneBookList.size();
+            return phoneBookList.size();
+    }
+
+    public String findByNumber(int number) {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneBook{" +
+                "phoneBookList=" + phoneBookList +
+                '}';
     }
 }
 

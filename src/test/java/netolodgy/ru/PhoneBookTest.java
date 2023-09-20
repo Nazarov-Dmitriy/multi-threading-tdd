@@ -1,13 +1,34 @@
 package netolodgy.ru;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
 class PhoneBookTest {
-    PhoneBook phoneBook = new PhoneBook();
+    static PhoneBook phoneBook = new PhoneBook();
+
+    @BeforeAll
+    static void setup() {
+        phoneBook.add("Pit", 1111);
+    }
+
     @Test
     void validatePhoneBookAdd() {
-        Integer result  = phoneBook.add("Pit", 89952444);
-        Assertions.assertEquals(1, result);
+        Integer result = phoneBook.add("Pit", 1111);
+        Assertions.assertEquals(2, result);
+    }
+
+    @Test
+    void validatePhoneBookAdd2() {
+        Integer result2 = phoneBook.add("Anna", 2222);
+        Assertions.assertEquals(2, result2);
+    }
+
+    @Test
+    void validatePhoneBookFindByNumber() {
+        System.out.println(phoneBook);
+        String result = phoneBook.findByNumber(1111);
+        Assertions.assertEquals("Pit", result);
     }
 }
