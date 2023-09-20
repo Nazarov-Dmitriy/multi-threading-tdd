@@ -27,8 +27,13 @@ class PhoneBookTest {
 
     @Test
     void validatePhoneBookFindByNumber() {
-        System.out.println(phoneBook);
         String result = phoneBook.findByNumber(1111);
         Assertions.assertEquals("Pit", result);
+    }
+
+    @Test
+    void validatePhoneBookFindByName () {
+        Integer result = phoneBook.findByName("Pit");
+        Assertions.assertEquals("1111", result);
     }
 }

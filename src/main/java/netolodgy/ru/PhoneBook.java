@@ -22,6 +22,10 @@ public class PhoneBook {
         return null;
     }
 
+    public Integer findByName (String text) {
+            return null;
+    }
+
     @Override
     public String toString() {
         return "PhoneBook{" +
